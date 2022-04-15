@@ -1,0 +1,30 @@
+- hosts: all
+  tasks:
+          - name: install http
+            yum: 
+               name:
+                       - httpd
+                       - firewalld
+               state: installed
+          - name: enabling firewal
+            service:
+                    name: firewalld 
+                    state: started
+                    enabled: true
+
+          - name: allowing http over firewall
+            firewalld:
+                 service: http
+                 permanent: yes
+                 state: enabled
+                 immediate: true
+
+          - name: copy index.html.j2
+            template:
+                    src: index.html.j2
+                    dest: /var/www/html/index.html
+          - name: start http service and enabled
+            service:
+                    name: httpd
+                    state: started
+                    enabled: true
