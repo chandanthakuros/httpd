@@ -19,9 +19,9 @@
                  state: enabled
                  immediate: true
 
-          - name: copy index.html.j2
-            template:
-                    src: index.html.j2
+          - name: content
+            lineinfile:
+                    line: Welcome Hello
                     dest: /var/www/html/index.html
           - name: start http service and enabled
             service:
