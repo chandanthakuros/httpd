@@ -22,7 +22,7 @@
           - name: content
             lineinfile:
                     line: Welcome Hello
-                    dest: /var/www/html/index.html
+                    path: /var/www/html/index.html
           - name: start http service and enabled
             service:
                     name: httpd
