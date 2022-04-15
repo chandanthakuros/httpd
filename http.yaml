@@ -23,6 +23,7 @@
             lineinfile:
                     line: Welcome Hello
                     path: /var/www/html/index.html
+                    state: present
           - name: start http service and enabled
             service:
                     name: httpd
